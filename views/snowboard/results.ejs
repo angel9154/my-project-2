@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Snowboard Listings</h1>
+
+  <% if (snowboards && snowboards.length > 0) { %>
+    <ul>
+      <% snowboards.forEach(function(snowboard) { %>
+        <li>
+          <h3><%= snowboard.name %></h3>
+          <p>Shape: <%= snowboard.shape %></p>
+          <p>Profile: <%= snowboard.profile %></p>
+          <p>Ability Level: <%= snowboard.abilityLevel %></p>
+          <p>Review: <%= snowboard.review %></p>
+  <!-- Edit button links to the edit form -->
+  <a href="/snowboard/edit/<%= snowboard._id %>">Edit</a>
+
+           <!-- Delete button inside a form -->
+           <form action="/snowboard/delete/<%= snowboard._id %>" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No snowboards found.</p>
+  <% } %>
+
+    <a href="/"> go back to the welcome page</a>
+</body>
+</html>
