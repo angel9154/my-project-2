@@ -6,9 +6,26 @@
     <title>Welcome Page</title>
 </head>
 <body>
-    <h1>this is going to be the welcome page</h1>
+    <video autoplay muted loop id="background-video">
+        <source src="/views/auth/myvideo/853808-hd_1920_1080_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- <a href="/auth/sign-up">Sign up</a> -->
+    <div class="sign-in-container">
+    <a href="/auth/sign-in" >sign in</a>
+    <a href="/auth/sign-out">Sign out</a>
+   <a href="/snowboard/results">Snowboard List</a>
+</div>
 
-    <button onclick="window.location.href='/form'">Start form</button>
+    <% if (user) { %>
+        <h1 class="indexh1">Hey <%= user.username %>, welcome to the gnarly world of snowboarding!</h1>
+        <% } else { %>
+        <h1  class="indexh1">What's Up bro, Welcome to the gnarly world of snowboarding!</h1>
+
+        <% } %>
+        
+    <button onclick="window.location.href='/form'">Add Snowboard</button>
+    <button onclick="window.location.href='/snowboard/recommendation'">recommended snowboards</button>
     <!-- window.location.href is used to navigate the browser to a new URL. -->
 
 </body>

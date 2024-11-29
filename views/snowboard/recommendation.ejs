@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Document</title>
+</head>
+<body>
+  <video autoplay muted loop id="background-video">
+    <source src="/views/auth/myvideo/7060328-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    <h1>Explore Top Snowboard Picks for Every Rider</h1>
+
+    <a href="/" class="back-link">Back to the welcome page</a>
+    <form action="/snowboard/recommendation" method="POST">
+        <select name="abilityLevel" required>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+      
+      <!-- Only show results section if snowboards exists (after form submission) -->
+      <% if (snowboards && snowboards.length > 0) { %>
+        <ul class="snowboard-list1">
+          <!-- <% snowboards.forEach(function(snowboard) { %> (function(snowboard) this is an annonimous function that help the loop extract the data from each property -->
+            <li  class="snowboard-list1">
+              <h3><%= snowboard.name %></h3>
+              <p>Shape: <%= snowboard.shape %></p>
+              <p>Profile: <%= snowboard.profile %></p>
+              <p>Ability Level: <%= snowboard.abilityLevel %></p>
+              <p>Review: <%= snowboard.review %></p>
+            </li>
+          <% }); %>
+        </ul>
+      <% } else { %>
+        <p class="no-snowboards">No snowboards found for your selected ability level.</p>
+      <% } %>
+</body>
+</html>

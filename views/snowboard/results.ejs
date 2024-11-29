@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Document</title>
 </head>
 <body>
+  <video autoplay muted loop id="background-video">
+    <source src="/views/auth/myvideo/7165790-uhd_3840_2160_24fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
     <h1>Snowboard Listings</h1>
 
   <% if (snowboards && snowboards.length > 0) { %>
-    <ul>
+    <ul class="snowboard-list">
       <% snowboards.forEach(function(snowboard) { %>
-        <li>
+        <li  class="snowboard-list">
           <h3><%= snowboard.name %></h3>
           <p>Shape: <%= snowboard.shape %></p>
           <p>Profile: <%= snowboard.profile %></p>
           <p>Ability Level: <%= snowboard.abilityLevel %></p>
           <p>Review: <%= snowboard.review %></p>
+          <div class="action-buttons">
   <!-- Edit button links to the edit form -->
-  <a href="/snowboard/edit/<%= snowboard._id %>">Edit</a>
+  <a href="/snowboard/edit/<%= snowboard._id %>" class="edit-link">Edit</a>
 
            <!-- Delete button inside a form -->
            <form action="/snowboard/delete/<%= snowboard._id %>" method="POST" style="display:inline;">
-            <button type="submit">Delete</button>
+            <button type="submit" class="delete-button">Delete</button>
           </form>
+        </div>
         </li>
       <% }); %>
     </ul>
   <% } else { %>
-    <p>No snowboards found.</p>
+    <p class="no-snowboards">No snowboards found.</p>
   <% } %>
 
-    <a href="/"> go back to the welcome page</a>
+    <a href="/" class="back-link"> go back to the welcome page</a>
+  </div>
 </body>
 </html>

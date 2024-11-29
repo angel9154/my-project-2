@@ -5,23 +5,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title>Edit Snowboard</title>
 </head>
 <body>
+  <video autoplay muted loop id="background-video">
+    <source src="/views/auth/myvideo/7165790-uhd_3840_2160_24fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
   <h1>Edit Snowboard</h1>
 
   <form action="/snowboard/update/<%= snowboard._id %>" method="POST">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="<%= snowboard.name %>" required><br>
+    <input type="text" id="name1" name="name" value="<%= snowboard.name %>" required><br>
 
     <label for="shape">Shape:</label>
-    <input type="text" id="shape" name="shape" value="<%= snowboard.shape %>" required><br>
+    <input type="text" id="shape1" name="shape" value="<%= snowboard.shape %>" required><br>
 
     <label for="profile">Profile:</label>
-    <input type="text" id="profile" name="profile" value="<%= snowboard.profile %>" required><br>
+    <input type="text" id="profile1" name="profile" value="<%= snowboard.profile %>" required><br>
 
     <label for="abilityLevel">Ability Level:</label>
-    <input type="text" id="abilityLevel" name="abilityLevel" value="<%= snowboard.abilityLevel %>" required><br>
+    <input type="text" id="abilityLevel1" name="abilityLevel" value="<%= snowboard.abilityLevel %>" required><br>
 
     <label for="review">Review:</label>
     <textarea id="review" name="review" required><%= snowboard.review %></textarea><br>
